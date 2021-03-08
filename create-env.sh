@@ -1,4 +1,4 @@
 echo "MESSAGE=${MESSAGE}" > .env
-echo "MESSAGE=${ACCESS_KEY}" > .env
-echo "MESSAGE=${SECRET_KEY}" > .env
-echo "MESSAGE=${BUCKET_NAME}" > .env
+echo "ACCESS_KEY=${ACCESS_KEY}" > .env
+echo "SECRET_KEY=${SECRET_KEY}" > .env
+echo "BUCKET_NAME=${BUCKET_NAME}" > .env
