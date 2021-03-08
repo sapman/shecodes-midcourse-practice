@@ -67,7 +67,7 @@ app.post("/upload", (req, res) => {
   // Uploading files to the bucket
   s3.upload(params, function (err, data) {
     if (err) {
-      throw err;
+      return res.sendStatus(400);
     }
     res.send(`File uploaded successfully. ${data.Location}`);
     console.log(`File uploaded successfully. ${data.Location}`);
@@ -76,7 +76,7 @@ app.post("/upload", (req, res) => {
 app.get("/list", (req, res) => {
   s3.listObjectsV2({ Bucket: process.env.BUCKET_NAME }, (err, data) => {
     if (err) {
-      res.sendStatus(400);
+      return res.sendStatus(400);
     }
     res.send(data.Contents);
   });
