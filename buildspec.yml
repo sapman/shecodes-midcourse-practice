@@ -1,0 +1,34 @@
+version: 0.2
+
+env:
+  variables:
+    MESSAGE: "Hello World"
+    ACCESS_KEY: "ACCESS_KEY"
+    SECRET_KEY: "SECRET_KEY"
+    BUCKET_NAME: "BUCKET_NAME"
+  exported-variables:
+    - MESSAGE
+    - ACCESS_KEY
+    - SECRET_KEY
+    - BUCKET_NAME
+
+phases:
+  pre_build:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Node.js code
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo creating .env file
+      - bash ./create-env.sh
+artifacts:
+  files:
+    - index.js
+    - package.json
+    - node_modules/*
+    - .env
