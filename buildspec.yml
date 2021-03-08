@@ -29,6 +29,8 @@ phases:
 artifacts:
   files:
     - index.js
+    - index.html
+    - server.js
     - package.json
     - node_modules/*
     - .env
