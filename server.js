@@ -75,6 +75,9 @@ app.post("/upload", (req, res) => {
 });
 app.get("/list", (req, res) => {
   s3.listObjectsV2({ Bucket: process.env.BUCKET_NAME }, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    }
     res.send(data.Contents);
   });
 });
