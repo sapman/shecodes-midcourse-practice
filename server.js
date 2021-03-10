@@ -4,6 +4,7 @@ const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const formData = require("express-form-data");
+const os = require("os");
 
 const app = express();
 app.use(formData.parse());
@@ -40,7 +41,9 @@ const port = 8080 || process.env.PORT;
 app.get("/message", (req, res) => {
   res.send(process.env.MESSAGE || "HELLO WORLD");
 });
-
+app.get("/host", (req, res) => {
+  res.send(os.hostname());
+});
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
