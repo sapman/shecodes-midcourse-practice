@@ -16,6 +16,7 @@ const { FSx } = require("aws-sdk");
 const s3 = new AWS.S3({
   accessKeyId: process.env.ACCESS_KEY,
   secretAccessKey: process.env.SECRET_KEY,
+  sessionToken: process.env.SESSION_TOKEN,
   region: "eu-west-3",
 });
 // (async () => {
